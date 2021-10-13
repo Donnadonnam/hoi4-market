@@ -1,0 +1,321 @@
+international_arms_market_category = {
+
+
+	
+    purchase_surplus_gw_artillery_0 = {
+        available = {
+
+            check_variable = { ROOT.market_countries^num > 0 }
+            set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+            if = {
+                limit = {
+                  check_variable = { traderCount > 2 }
+                }
+
+                var:ROOT.market_countries^2 = {
+                    has_tech = gw_artillery
+                    has_tech = artillery1
+                }
+            }
+
+            if = {
+                limit = {
+                    check_variable = { traderCount > 1 }
+                }
+
+                var:ROOT.market_countries^1 = {
+                    has_tech = gw_artillery
+                    has_tech = artillery1
+                }
+            }
+
+            if = {
+                limit = {
+                    check_variable = { traderCount > 0}
+                }
+
+                var:ROOT.market_countries^0 = {
+                    has_tech = gw_artillery
+                    has_tech = artillery1
+                }
+            }
+
+            NOT = { 
+                ROOT = { has_idea = closed_economy }
+            }
+            num_of_civilian_factories_available_for_projects > 1
+
+        }
+        modifier = {
+            civilian_factory_use = 1
+        }
+        days_remove = 90
+        visible = {
+            has_country_flag = open_surplus_menu
+
+
+			OR = {
+				is_debug = yes
+				AND = {
+
+					check_variable = { ROOT.market_countries^num > 0 }
+					set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+					if = {
+						limit = {
+						check_variable = { traderCount > 2 }
+						}
+
+						var:ROOT.market_countries^2 = {
+							has_tech = gw_artillery
+							has_tech = artillery1
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = { traderCount > 1 }
+						}
+
+						var:ROOT.market_countries^1 = {
+							has_tech = gw_artillery
+							has_tech = artillery1
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = { traderCount > 0}
+						}
+
+						var:ROOT.market_countries^0 = {
+							has_tech = gw_artillery
+							has_tech = artillery1
+						}
+					}
+				}
+			}
+        }
+        icon = generic_ignite_civil_war
+        cost = 10
+
+        complete_effect = {
+        }
+        remove_effect = {
+
+            set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+            if = {
+                limit = {
+                  check_variable = { traderCount > 2 }
+                }
+
+                add_equipment_to_stockpile = {
+                    type = artillery_equipment_1
+                    amount = 17
+                    producer = var:ROOT.market_countries^0
+                }
+
+                add_equipment_to_stockpile = {
+                    type = artillery_equipment_1
+                    amount = 17
+                    producer = var:ROOT.market_countries^1
+                }
+
+                add_equipment_to_stockpile = {
+                    type = artillery_equipment_1
+                    amount = 17
+                    producer = var:ROOT.market_countries^2
+                }
+            } else_if = {
+                limit = {
+                    check_variable = { traderCount > 1 }
+                }
+
+                add_equipment_to_stockpile = {
+                    type = artillery_equipment_1
+                    amount = 25
+                    producer = var:ROOT.market_countries^0
+                }
+            
+                add_equipment_to_stockpile = {
+                    type = artillery_equipment_1
+                    amount = 25
+                    producer = var:ROOT.market_countries^1
+                }
+            } else_if = {
+                limit = {
+                    check_variable = { traderCount > 0}
+                }
+
+                add_equipment_to_stockpile = {
+                    type = artillery_equipment_1
+                    amount = 50
+                    producer = var:ROOT.market_countries^0
+                }
+            }
+        }
+    }
+	
+	
+	
+    purchase_surplus_artillery1_0 = {
+        available = {
+
+            check_variable = { ROOT.market_countries^num > 0 }
+            set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+            if = {
+                limit = {
+                  check_variable = { traderCount > 2 }
+                }
+
+                var:ROOT.market_countries^2 = {
+                    has_tech = artillery1
+                    has_tech = artillery4
+                }
+            }
+
+            if = {
+                limit = {
+                    check_variable = { traderCount > 1 }
+                }
+
+                var:ROOT.market_countries^1 = {
+                    has_tech = artillery1
+                    has_tech = artillery4
+                }
+            }
+
+            if = {
+                limit = {
+                    check_variable = { traderCount > 0}
+                }
+
+                var:ROOT.market_countries^0 = {
+                    has_tech = artillery1
+                    has_tech = artillery4
+                }
+            }
+
+            NOT = { 
+                ROOT = { has_idea = closed_economy }
+            }
+            num_of_civilian_factories_available_for_projects > 1
+
+        }
+        modifier = {
+            civilian_factory_use = 1
+        }
+        days_remove = 90
+        visible = {
+            has_country_flag = open_surplus_menu
+
+
+			OR = {
+				is_debug = yes
+				AND = {
+
+					check_variable = { ROOT.market_countries^num > 0 }
+					set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+					if = {
+						limit = {
+						check_variable = { traderCount > 2 }
+						}
+
+						var:ROOT.market_countries^2 = {
+							has_tech = artillery1
+							has_tech = artillery4
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = { traderCount > 1 }
+						}
+
+						var:ROOT.market_countries^1 = {
+							has_tech = artillery1
+							has_tech = artillery4
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = { traderCount > 0}
+						}
+
+						var:ROOT.market_countries^0 = {
+							has_tech = artillery1
+							has_tech = artillery4
+						}
+					}
+				}
+			}
+        }
+        icon = generic_ignite_civil_war
+        cost = 10
+
+        complete_effect = {
+        }
+        remove_effect = {
+
+            set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+            if = {
+                limit = {
+                  check_variable = { traderCount > 2 }
+                }
+
+                add_equipment_to_stockpile = {
+                    type = artillery_equipment_2
+                    amount = 17
+                    producer = var:ROOT.market_countries^0
+                }
+
+                add_equipment_to_stockpile = {
+                    type = artillery_equipment_2
+                    amount = 17
+                    producer = var:ROOT.market_countries^1
+                }
+
+                add_equipment_to_stockpile = {
+                    type = artillery_equipment_2
+                    amount = 17
+                    producer = var:ROOT.market_countries^2
+                }
+            } else_if = {
+                limit = {
+                    check_variable = { traderCount > 1 }
+                }
+
+                add_equipment_to_stockpile = {
+                    type = artillery_equipment_2
+                    amount = 25
+                    producer = var:ROOT.market_countries^0
+                }
+            
+                add_equipment_to_stockpile = {
+                    type = artillery_equipment_2
+                    amount = 25
+                    producer = var:ROOT.market_countries^1
+                }
+            } else_if = {
+                limit = {
+                    check_variable = { traderCount > 0}
+                }
+
+                add_equipment_to_stockpile = {
+                    type = artillery_equipment_2
+                    amount = 50
+                    producer = var:ROOT.market_countries^0
+                }
+            }
+        }
+    }
+	
+	
+
+}

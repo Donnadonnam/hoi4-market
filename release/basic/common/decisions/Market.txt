@@ -1,0 +1,645 @@
+
+
+
+
+international_arms_market_category = {
+
+	##########surplus
+	open_surplus_menu = {
+		available = {
+			NOT = { ROOT = { has_idea = closed_economy }}
+		}
+		visible = {
+			NOT = { has_country_flag = open_surplus_menu }
+			has_tech = infantry_weapons
+		}
+
+		icon = eng_trade_unions_support
+		cost = 0
+		complete_effect = {
+
+			clear_array = ROOT.market_countries
+
+			every_country = {
+		
+				if = {
+					limit = {
+						is_major = yes 
+						arms_factory > 10
+						country_exists = THIS
+                        is_ai = yes
+						NOT = { ROOT = THIS }
+						NOT = { has_idea = closed_economy }
+						NOT = { is_puppet = yes }
+						NOT = { is_subject = yes }
+						NOT = { is_government_in_exile = yes }
+						NOT = { has_capitulated  = yes }
+						NOT = { has_war_with = ROOT }
+					}   
+		
+					add_to_array = { ROOT.market_countries = THIS.id}
+				}
+			}
+
+			set_country_flag = open_surplus_menu
+		}
+		remove_effect = {
+		}
+	}
+
+	close_surplus_menu = {
+		available = {
+		}
+		visible = {
+			has_country_flag = open_surplus_menu
+		}
+		icon = eng_trade_unions_support
+		cost = 0
+		complete_effect = {
+			clr_country_flag = open_surplus_menu
+		}
+		remove_effect = {
+		}
+	}
+
+
+    hoi_market_foreign_advisors = {
+
+        available = {
+            num_of_factories < 49
+        }
+
+        fire_only_once = yes
+
+        visible = {
+            NOT = { ROOT = { has_idea = hoi_market_foreign_advisors }}
+        }
+
+        fire_only_once = yes
+        cost = 150
+        icon = hol_draw_up_staff_plans
+
+        complete_effect = {
+            army_experience = 15
+            add_ideas = hoi_market_foreign_advisors
+        }
+    }
+
+
+
+    license_foreign_designs = {
+
+        available = {
+            NOT = { ROOT = { has_idea = closed_economy }}
+            num_of_factories < 49
+            num_of_civilian_factories_available_for_projects > 1
+        }
+
+        fire_only_once = yes
+
+        visible = {
+            always = yes
+        }
+        modifier = {
+            civilian_factory_use = 2
+        }
+        days_remove = 730
+        fire_only_once = yes
+        cost = 100
+        icon = eng_trade_unions_support
+
+        complete_effect = {
+            add_offsite_building = { type = arms_factory level = 2 }
+            custom_effect_tooltip = license_foreign_designs_martket_tt
+
+            hidden_effect = {
+                add_relation_modifier = {
+                    target = USA
+                    modifier = ROM_military_modernization
+                }
+                add_relation_modifier = {
+                    target = ENG
+                    modifier = ROM_military_modernization
+                }
+                add_relation_modifier = {
+                    target = GER
+                    modifier = ROM_military_modernization
+                }
+                add_relation_modifier = {
+                    target = ITA
+                    modifier = ROM_military_modernization
+                }
+                add_relation_modifier = {
+                    target = JAP
+                    modifier = ROM_military_modernization
+                }
+                add_relation_modifier = {
+                    target = SOV
+                    modifier = ROM_military_modernization
+                }
+                add_relation_modifier = {
+                    target = CZE
+                    modifier = ROM_military_modernization
+                }
+                add_relation_modifier = {
+                    target = SWE
+                    modifier = ROM_military_modernization
+                }
+                add_relation_modifier = {
+                    target = POL
+                    modifier = ROM_military_modernization
+                }
+                add_relation_modifier = {
+                    target = FRA
+                    modifier = ROM_military_modernization
+                }
+            }
+        }
+        remove_effect = {
+            add_offsite_building = { type = arms_factory level = -2 }
+        }
+    }
+    refit_tanks = {
+
+        available = {
+            has_tech = gwtank
+            has_tech = basic_light_tank
+        }
+
+        ai_will_do = {
+            factor = 1
+            modifier = {
+                date > 1938.01.01
+                factor = 10
+            }
+        }
+
+        fire_only_once = yes
+
+        visible = {
+            always = yes
+        }
+        fire_only_once = yes
+        cost = 20
+        icon = generic_tank
+
+        complete_effect = {
+            army_experience = -15
+            create_equipment_variant = {
+                name = "Great War Tank Destroyer"
+                type = gw_tank_equipment
+                upgrades = {
+                    tank_gun_upgrade = 7
+                    tank_armor_upgrade = 0
+                    tank_engine_upgrade = 1
+                    tank_reliability_upgrade = 4
+                }
+            }
+
+            create_equipment_variant = {
+                name = "Early Light Tank 45mm Refit"
+                type = light_tank_equipment_1
+                upgrades = {
+                    tank_gun_upgrade = 5
+                    tank_armor_upgrade = 0
+                    tank_engine_upgrade = 1
+                    tank_reliability_upgrade = 2
+                }
+            }
+
+            add_tech_bonus = {
+                bonus = 1.0
+                uses = 3
+                name = refit_tanks
+                technology = basic_light_td
+                technology = basic_light_art
+                technology = basic_light_spaa
+            }
+        }
+
+    }
+    #
+
+}
+
+##########################################################################
+sell_equipment_category = {
+    sell_old_infantry_equipment = {
+
+        available = {
+            NOT = { ROOT = { has_idea = closed_economy }}
+            has_equipment = {
+                infantry_equipment > 1999
+            }
+        }
+
+        fire_only_once = no
+
+        visible = {
+            always = yes
+        }
+        days_remove = 75
+        icon = generic_industry
+
+        complete_effect = {
+            add_political_power = 20
+            add_offsite_building = {
+                type = industrial_complex
+                level = 1
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -2000
+                producer = ROOT
+            }
+        }
+        remove_effect = {
+            set_country_flag = sold_rifles
+            add_offsite_building = {
+                type = industrial_complex
+                level = -1
+            }
+        }
+    }
+
+    sell_old_planes = {
+
+        available = {
+            NOT = { ROOT = { has_idea = closed_economy }}
+            has_equipment = {
+                fighter_equipment > 99
+            }
+        }
+
+        fire_only_once = no
+
+        visible = {
+            always = yes
+        }
+        days_remove = 150
+        icon = generic_air
+
+
+        complete_effect = {
+            add_political_power = 20
+            add_offsite_building = {
+                type = industrial_complex
+                level = 1
+            }
+            add_equipment_to_stockpile = {
+                type = fighter_equipment
+                amount = -100
+                producer = ROOT
+            }
+        }
+        remove_effect = {
+            set_country_flag = sold_planes
+            add_offsite_building = {
+                type = industrial_complex
+                level = -1
+            }
+        }
+    }
+
+    sell_obsolete_tanks = {
+
+        available = {
+            NOT = { ROOT = { has_idea = closed_economy }}
+            has_equipment = {
+                light_tank_equipment > 99
+            }
+        }
+
+        fire_only_once = no
+
+        visible = {
+            always = yes
+        }
+        days_remove = 150
+        icon = generic_industry
+
+
+        complete_effect = {
+            add_political_power = 10
+            add_offsite_building = {
+                type = industrial_complex
+                level = 2
+            }
+            add_equipment_to_stockpile = {
+                type = light_tank_equipment
+                amount = -100
+                producer = ROOT
+            }
+        }
+        remove_effect = {
+            set_country_flag = sold_tanks
+            add_offsite_building = {
+                type = industrial_complex
+                level = -2
+            }
+        }
+    }
+
+    sell_old_cannons = {
+
+        available = {
+            NOT = { ROOT = { has_idea = closed_economy }}
+            has_equipment = {
+                artillery_equipment > 120
+            }
+        }
+
+        fire_only_once = no
+
+        visible = {
+            always = yes
+        }
+        days_remove = 120
+        icon = ger_military_buildup
+
+        complete_effect = {
+            add_political_power = 20
+            add_offsite_building = {
+                type = industrial_complex
+                level = 2
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = -60
+                producer = ROOT
+            }
+        }
+        remove_effect = {
+            add_offsite_building = {
+                type = industrial_complex
+                level = -2
+            }
+        }
+    }
+
+
+    sell_stockpiled_anti-tank_guns = {
+
+        available = {
+            NOT = { ROOT = { has_idea = closed_economy }}
+            has_equipment = {
+                anti_tank_equipment > 99
+            }
+        }
+
+        fire_only_once = no
+
+        visible = {
+            always = yes
+        }
+        days_remove = 120
+        icon = ger_military_buildup
+
+        complete_effect = {
+            add_political_power = 20
+            add_offsite_building = {
+                type = industrial_complex
+                level = 2
+            }
+            add_equipment_to_stockpile = {
+                type = anti_tank_equipment
+                amount = -72
+                producer = ROOT
+            }
+        }
+        remove_effect = {
+            add_offsite_building = {
+                type = industrial_complex
+                level = -2
+            }
+        }
+    }
+
+    sell_stockpiled_AA_guns = {
+
+        available = {
+            NOT = { ROOT = { has_idea = closed_economy }}
+            has_equipment = {
+                anti_air_equipment > 99
+            }
+        }
+
+        fire_only_once = no
+
+        visible = {
+            always = yes
+        }
+        days_remove = 120
+        icon = ger_military_buildup
+
+        complete_effect = {
+            add_political_power = 20
+            add_offsite_building = {
+                type = industrial_complex
+                level = 2
+            }
+            add_equipment_to_stockpile = {
+                type = anti_air_equipment
+                amount = -100
+                producer = ROOT
+            }
+        }
+        remove_effect = {
+            add_offsite_building = {
+                type = industrial_complex
+                level = -2
+            }
+        }
+    }
+
+    sell_ship_facilities = {
+
+        available = {
+            NOT = { ROOT = { has_idea = closed_economy }}
+            any_owned_state = {
+                dockyard > 1
+            }
+        }
+
+        fire_only_once = no
+
+        visible = {
+            always = yes
+        }
+        days_remove = 150
+        icon = faction_gre_venezelist
+
+        complete_effect = {
+            random_owned_controlled_state = {
+                limit = { dockyard > 1 }
+                remove_building = {
+                    type = dockyard
+                    level = 2
+                }
+                set_state_flag = dockyards_rented
+            }
+            add_political_power = 35
+            add_offsite_building = {
+                type = industrial_complex
+                level = 3
+            }
+        }
+        remove_effect = {
+            set_country_flag = sold_ships
+            random_owned_controlled_state = {
+                limit = { has_state_flag = dockyards_rented }
+                add_building_construction = {
+                    type = dockyard
+                    level = 2
+                    instant_build = yes
+                }
+                clr_state_flag = dockyards_rented
+            }
+            add_offsite_building = {
+                type = industrial_complex
+                level = -3
+            }
+        }
+    }
+
+    rent_out_military_factories = {
+
+        available = {
+            NOT = { ROOT = { has_idea = closed_economy }}
+            any_owned_state = {
+                arms_factory > 1
+            }
+
+        }
+
+        fire_only_once = no
+
+        visible = {
+            always = yes
+        }
+        days_remove = 730
+        icon = category_gre_faction_management
+
+        complete_effect = {
+            random_owned_controlled_state = {
+                limit = { arms_factory > 1 }
+                remove_building = {
+                    type = arms_factory
+                    level = 2
+                }
+                set_state_flag = factories_rented
+            }
+            add_political_power = 35
+            add_offsite_building = {
+                type = industrial_complex
+                level = 3
+            }
+        }
+        remove_effect = {
+            random_owned_controlled_state = {
+                limit = { has_state_flag = factories_rented }
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+                clr_state_flag = factories_rented
+            }
+            add_offsite_building = {
+                type = industrial_complex
+                level = -3
+            }
+        }
+    }
+
+
+    naval_exports = {
+
+        available = {
+            NOT = { ROOT = { has_idea = closed_economy }}
+            has_country_flag = sold_ships
+            num_of_factories < 49
+        }
+
+        fire_only_once = yes
+
+        visible = {
+            always = yes
+        }
+        fire_only_once = yes
+        cost = 100
+        icon = category_gre_paying_ifc_debt
+
+        complete_effect = {
+            add_ideas = naval_exports
+        }
+    }
+
+    air_exports = {
+
+        available = {
+            NOT = { ROOT = { has_idea = closed_economy }}
+            has_country_flag = sold_planes
+            num_of_factories < 49
+        }
+
+        fire_only_once = yes
+
+        visible = {
+            always = yes
+        }
+        fire_only_once = yes
+        cost = 100
+        icon = category_gre_paying_ifc_debt
+
+        complete_effect = {
+            add_ideas = air_exports
+        }
+    }
+
+    arms_exports = {
+
+        available = {
+            NOT = { ROOT = { has_idea = closed_economy }}
+            has_country_flag = sold_rifles
+            num_of_factories < 49
+        }
+
+        fire_only_once = yes
+
+        visible = {
+            always = yes
+        }
+        fire_only_once = yes
+        cost = 100
+        icon = category_gre_paying_ifc_debt
+
+        complete_effect = {
+            add_ideas = arms_exports
+        }
+    }
+    tank_exports = {
+
+        available = {
+            NOT = { ROOT = { has_idea = closed_economy }}
+            has_country_flag = sold_tanks
+            num_of_factories < 49
+        }
+
+        fire_only_once = yes
+
+        visible = {
+            always = yes
+        }
+        fire_only_once = yes
+        cost = 100
+        icon = category_gre_paying_ifc_debt
+
+        complete_effect = {
+            add_ideas = armor_exports
+        }
+    }
+
+    #end of selling dom arms
+}
+#

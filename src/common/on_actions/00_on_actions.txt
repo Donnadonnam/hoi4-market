@@ -1,0 +1,13 @@
+on_actions = {
+
+	#Not run on a specific country.
+	on_startup = {
+		effect = {
+		}
+	}
+	
+	on_daily = { 
+		effect = {
+		}
+	}
+}
