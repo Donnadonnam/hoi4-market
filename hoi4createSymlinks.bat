@@ -1,10 +1,9 @@
 ::===============================================================
 :: Sets up Symlinks for needed folder
-:: Todo: make mor dynamic!
+:: Todo: make more dynamic!
 ::===============================================================
-mklink /J "%~dp0steam-workshop" "G:\SteamLibrary\steamapps\workshop\content\394360"
-
-mklink /J "%UserProfile%\Documents\Paradox Interactive\Hearts of Iron IV\mod\market" "%~dp0release\basic"
-mklink /J "%UserProfile%\Documents\Paradox Interactive\Hearts of Iron IV\mod\market-thegreatwar" "%~dp0release\thegreatwar"
+mklink /J "%~dp0_steam-workshop" "G:\SteamLibrary\steamapps\workshop\content\394360"
+mklink /J "%~dp0_mod-folder" "%UserProfile%\Documents\Paradox Interactive\Hearts of Iron IV\mod"
+mklink /J "%~dp0_logs" "%UserProfile%\Documents\Paradox Interactive\Hearts of Iron IV\logs"
 
 pause

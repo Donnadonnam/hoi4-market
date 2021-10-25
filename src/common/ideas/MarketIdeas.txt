@@ -12,7 +12,7 @@ ideas = {
 				always = yes
 			}
 
-			picture = generic_fighter_production_diverted #gc18
+			picture = generic_fighter_production_diverted
 			
 			removal_cost = -1
 			modifier = { 
@@ -97,7 +97,7 @@ ideas = {
 				always = yes
 			}
 
-			picture = man_five_year_plan_tank #idea_generic_acquire_tanks #tgwr107
+			picture = man_five_year_plan_tank
 			
 			removal_cost = -1
 

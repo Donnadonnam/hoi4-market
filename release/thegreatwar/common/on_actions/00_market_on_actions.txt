@@ -1,0 +1,50 @@
+on_actions = {
+
+	#Not run on a specific country.
+	on_startup = {
+		effect = {
+		}
+	}
+	
+	on_daily = { 
+		effect = {
+
+			clear_array = ROOT.market_countries
+
+			every_other_country = {
+		
+				if = {
+					limit = {
+
+						OR = {
+							AND = {
+								is_major = yes 
+								num_of_military_factories > 10
+							}
+							AND = {
+								is_major = no 
+								num_of_military_factories > 20
+							}
+						}
+
+						country_exists = THIS
+                        is_ai = yes
+						has_opinion = { target = ROOT value > -20 }
+						NOT = { convoy_threat > 0.5 }
+						NOT = { has_idea = closed_economy }
+						NOT = { is_puppet = yes }
+						NOT = { is_subject = yes }
+						NOT = { is_government_in_exile = yes }
+						NOT = { has_capitulated  = yes }
+						NOT = { has_war_with = ROOT }
+						NOT = { has_war = yes }
+						
+					}   
+		
+					add_to_array = { ROOT.market_countries = THIS.id}
+				} 
+			}
+
+		}
+	}
+}

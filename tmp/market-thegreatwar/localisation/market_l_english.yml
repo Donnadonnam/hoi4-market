@@ -203,7 +203,7 @@ purchase_surplus_improved_light_tank_0: "Purchase Mid War Surplus [?ROOT.market_
 purchase_surplus_gw_artillery_0: "Purchase Great War Artillery Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
 purchase_surplus_artillery1_0: "Purchase Inter War Artillery Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
 
-purchase_surplus_early_fighter_0: "£army_experience Purchase Great War Fighter Aircraft Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
+purchase_surplus_early_fighter_0: "Purchase Great War Fighter Aircraft Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
 purchase_surplus_fighter1_0: "Purchase Inter War Fighter Aircraft Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
 purchase_surplus_fighter2_0: "Purchase Mid War Fighter Aircraft Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
 purchase_surplus_fighter3_0: "Purchase War Fighter Aircraft Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"

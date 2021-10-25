@@ -1,0 +1,13 @@
+{
+    "minimum-stability": "dev",
+    "require": {
+        "tuefekci/helpers": "@dev",
+        "league/climate": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../helpers"
+        }
+    ]
+}

@@ -14,6 +14,7 @@ international_arms_market_category = {
                 }
 
                 var:ROOT.market_countries^2 = {
+                    can_research = gw_artillery
                     has_tech = gw_artillery
                     has_tech = artillery1
                 }

@@ -83,7 +83,7 @@ try {
 
 	}
 
-	$products = array();
+
 
 
 

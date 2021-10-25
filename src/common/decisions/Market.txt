@@ -2,7 +2,7 @@
 
 
 
-international_arms_market_category = {
+Buy_equipment_market_category = {
 
 	##########surplus
 	open_surplus_menu = {
@@ -199,7 +199,7 @@ international_arms_market_category = {
 }
 
 ##########################################################################
-sell_equipment_category = {
+Sell_equipment_market_category = {
     sell_old_infantry_equipment = {
 
         available = {

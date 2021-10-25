@@ -1,4 +1,9 @@
 <?php
+
+use \tuefekci\helpers;
+use tuefekci\helpers\Files as Files;
+use tuefekci\helpers\Arrays as Arrays;
+
 /**
  * A class to parse LUA files to an PHP array.
  *
@@ -52,16 +57,17 @@ class LUAParser {
 		// Read the file
 		if(($lua = file_get_contents($path)) !== false) {
 
-
 			$lua = strip_comments($lua);
+			$lua = correctSyntax($lua);
 
-			file_put_contents($path."_cleaned", $lua);
+			file_put_contents(__TMP__."/luaparser_filtered_raw.txt", $lua);
+
 
 			// Check syntax if one or more keys has been added
 			if($this->checkSyntax($lua) === true) {
 
 				// Split by new line and count lines
-				$this->_lua = explode("\n", $lua);
+				$this->_lua = preg_split('/\r\n|\r|\n/', $lua);
 				$this->_lines = count($this->_lua);
 
 				// Free resources
@@ -69,7 +75,8 @@ class LUAParser {
 
 				// Very small array, something is wrong
 				if($this->_lines < 2) {
-					throw new Exception('Could not parse LUA file');
+					
+					throw new Exception('Could not parse LUA file '. $this->_lines);
 				}
 
 				// Parse the LUA data
@@ -149,6 +156,12 @@ class LUAParser {
 					break;
 				}
 
+				if(empty($this->_lua[$this->_pos])) {
+					$this->_pos++;
+					continue;
+				}
+
+
 				// Explode by assignment character
 				$parts = explode('=', $this->_lua[$this->_pos]);
 
@@ -163,6 +176,11 @@ class LUAParser {
 				if(isset($parts[0]) === true && !empty($parts[0]) && ($parts[0][0] === '#')) {
 					$this->_pos++;
 					continue;
+				}
+
+
+				if(isset($parts[1])  && !isset($parts[1][0])) {
+					var_dump($parts);
 				}
 
 
@@ -197,22 +215,19 @@ class LUAParser {
 
 
 					$data[$key] = $newData;
-				}
 
-				// End of table
-				else if($parts[0] === '}' || $parts[0] === '},') {
+				} else if($parts[0] === '}' || $parts[0] === '},') { // End of table
+
 					$end = true;
 					$this->_pos++;
-				}
 
-				// { }, case
-				else if(isset($parts[1]) == true && $parts[1][0] == '{' &&  mb_strlen($parts[1]) > 1 && ($subpart = trim(substr($parts[1], 1))) && ($subpart == '},' || $subpart == '}')) {
-					
-					
+				} else if(isset($parts[1]) == true && $parts[1][0] == '{' &&  mb_strlen($parts[1]) > 1 && ($subpart = trim(substr($parts[1], 1))) && ($subpart == '},' || $subpart == '}')) { // { }, case
+
 					if(empty($data[$this->getValue($parts[0], true)])) {
 						$data[$this->getValue($parts[0], true)] = array();
 					}
 					$this->_pos++;
+
 				}
 
 				// Get value
@@ -307,5 +322,25 @@ class LUAParser {
  function strip_comments($source) {
 	return $text = preg_replace('/#.*/','',preg_replace('#//.*#','',preg_replace('#/\*(?:[^*]*(?:\*(?!/))*)*\*/#','',($source))));
  }
+
+function correctSyntax(string $text) {
+	$code = explode(PHP_EOL, $text);
+
+	foreach($code as $line => $value) {
+
+		$value = trim($value);
+
+		if($value === "{") {
+			$neighbors = Arrays::neighborKeys($code, $line);
+
+			$code[$neighbors['prev']] = $code[$neighbors['prev']]." {";
+			unset($code[$line]);
+		}
+
+	}
+ 
+	return implode(PHP_EOL, $code);
+}
+
 
 ?>

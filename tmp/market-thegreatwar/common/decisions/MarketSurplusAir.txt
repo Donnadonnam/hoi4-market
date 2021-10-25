@@ -1,0 +1,1819 @@
+Buy_equipment_market_category = {
+
+
+
+purchase_surplus_ww1_fighter1_0 = {
+	available = {
+
+		check_variable = { ROOT.market_countries^num > 0 }
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			var:ROOT.market_countries^2 = {
+				has_tech = ww1_fighter1
+				has_tech = ww1_fighter2
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			var:ROOT.market_countries^1 = {
+				has_tech = ww1_fighter1
+				has_tech = ww1_fighter2
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			var:ROOT.market_countries^0 = {
+				has_tech = ww1_fighter1
+				has_tech = ww1_fighter2
+			}
+		}
+
+		NOT = { 
+			ROOT = { has_idea = closed_economy }
+		}
+		num_of_civilian_factories_available_for_projects > 1
+
+	}
+	modifier = {
+		civilian_factory_use = 1
+	}
+	days_remove = 90
+	visible = {
+		has_country_flag = open_surplus_menu
+
+
+		OR = {
+			is_debug = yes
+			AND = {
+
+				check_variable = { ROOT.market_countries^num > 0 }
+				set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+				if = {
+					limit = {
+					check_variable = { traderCount > 2 }
+					}
+
+					var:ROOT.market_countries^2 = {
+						has_tech = ww1_fighter1
+						has_tech = ww1_fighter2
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 1 }
+					}
+
+					var:ROOT.market_countries^1 = {
+						has_tech = ww1_fighter1
+						has_tech = ww1_fighter2
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 0}
+					}
+
+					var:ROOT.market_countries^0 = {
+						has_tech = ww1_fighter1
+						has_tech = ww1_fighter2
+					}
+				}
+			}
+		}
+	}
+	icon = generic_air
+	cost = 10
+
+	complete_effect = {
+	}
+	remove_effect = {
+
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_1
+	amount = 33
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_1
+	amount = 33
+	producer = var:ROOT.market_countries^1
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_1
+	amount = 33
+	producer = var:ROOT.market_countries^2
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_1
+	amount = 50
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_1
+	amount = 50
+	producer = var:ROOT.market_countries^1
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_1
+	amount = 100
+	producer = var:ROOT.market_countries^0
+}
+
+
+		}
+	}
+}
+
+
+
+
+purchase_surplus_ww1_fighter2_0 = {
+	available = {
+
+		check_variable = { ROOT.market_countries^num > 0 }
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			var:ROOT.market_countries^2 = {
+				has_tech = ww1_fighter2
+				has_tech = ww1_fighter3
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			var:ROOT.market_countries^1 = {
+				has_tech = ww1_fighter2
+				has_tech = ww1_fighter3
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			var:ROOT.market_countries^0 = {
+				has_tech = ww1_fighter2
+				has_tech = ww1_fighter3
+			}
+		}
+
+		NOT = { 
+			ROOT = { has_idea = closed_economy }
+		}
+		num_of_civilian_factories_available_for_projects > 1
+
+	}
+	modifier = {
+		civilian_factory_use = 1
+	}
+	days_remove = 90
+	visible = {
+		has_country_flag = open_surplus_menu
+
+
+		OR = {
+			is_debug = yes
+			AND = {
+
+				check_variable = { ROOT.market_countries^num > 0 }
+				set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+				if = {
+					limit = {
+					check_variable = { traderCount > 2 }
+					}
+
+					var:ROOT.market_countries^2 = {
+						has_tech = ww1_fighter2
+						has_tech = ww1_fighter3
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 1 }
+					}
+
+					var:ROOT.market_countries^1 = {
+						has_tech = ww1_fighter2
+						has_tech = ww1_fighter3
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 0}
+					}
+
+					var:ROOT.market_countries^0 = {
+						has_tech = ww1_fighter2
+						has_tech = ww1_fighter3
+					}
+				}
+			}
+		}
+	}
+	icon = generic_air
+	cost = 10
+
+	complete_effect = {
+	}
+	remove_effect = {
+
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_2
+	amount = 33
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_2
+	amount = 33
+	producer = var:ROOT.market_countries^1
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_2
+	amount = 33
+	producer = var:ROOT.market_countries^2
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_2
+	amount = 50
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_2
+	amount = 50
+	producer = var:ROOT.market_countries^1
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_2
+	amount = 100
+	producer = var:ROOT.market_countries^0
+}
+
+
+		}
+	}
+}
+
+
+
+
+purchase_surplus_ww1_fighter3_0 = {
+	available = {
+
+		check_variable = { ROOT.market_countries^num > 0 }
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			var:ROOT.market_countries^2 = {
+				has_tech = ww1_fighter3
+				has_tech = ww1_fighter4
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			var:ROOT.market_countries^1 = {
+				has_tech = ww1_fighter3
+				has_tech = ww1_fighter4
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			var:ROOT.market_countries^0 = {
+				has_tech = ww1_fighter3
+				has_tech = ww1_fighter4
+			}
+		}
+
+		NOT = { 
+			ROOT = { has_idea = closed_economy }
+		}
+		num_of_civilian_factories_available_for_projects > 1
+
+	}
+	modifier = {
+		civilian_factory_use = 1
+	}
+	days_remove = 90
+	visible = {
+		has_country_flag = open_surplus_menu
+
+
+		OR = {
+			is_debug = yes
+			AND = {
+
+				check_variable = { ROOT.market_countries^num > 0 }
+				set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+				if = {
+					limit = {
+					check_variable = { traderCount > 2 }
+					}
+
+					var:ROOT.market_countries^2 = {
+						has_tech = ww1_fighter3
+						has_tech = ww1_fighter4
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 1 }
+					}
+
+					var:ROOT.market_countries^1 = {
+						has_tech = ww1_fighter3
+						has_tech = ww1_fighter4
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 0}
+					}
+
+					var:ROOT.market_countries^0 = {
+						has_tech = ww1_fighter3
+						has_tech = ww1_fighter4
+					}
+				}
+			}
+		}
+	}
+	icon = generic_air
+	cost = 10
+
+	complete_effect = {
+	}
+	remove_effect = {
+
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_3
+	amount = 33
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_3
+	amount = 33
+	producer = var:ROOT.market_countries^1
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_3
+	amount = 33
+	producer = var:ROOT.market_countries^2
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_3
+	amount = 50
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_3
+	amount = 50
+	producer = var:ROOT.market_countries^1
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_3
+	amount = 100
+	producer = var:ROOT.market_countries^0
+}
+
+
+		}
+	}
+}
+
+
+
+
+purchase_surplus_ww1_fighter4_0 = {
+	available = {
+
+		check_variable = { ROOT.market_countries^num > 0 }
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			var:ROOT.market_countries^2 = {
+				has_tech = ww1_fighter4
+				has_tech = ww1_fighter5
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			var:ROOT.market_countries^1 = {
+				has_tech = ww1_fighter4
+				has_tech = ww1_fighter5
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			var:ROOT.market_countries^0 = {
+				has_tech = ww1_fighter4
+				has_tech = ww1_fighter5
+			}
+		}
+
+		NOT = { 
+			ROOT = { has_idea = closed_economy }
+		}
+		num_of_civilian_factories_available_for_projects > 1
+
+	}
+	modifier = {
+		civilian_factory_use = 1
+	}
+	days_remove = 90
+	visible = {
+		has_country_flag = open_surplus_menu
+
+
+		OR = {
+			is_debug = yes
+			AND = {
+
+				check_variable = { ROOT.market_countries^num > 0 }
+				set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+				if = {
+					limit = {
+					check_variable = { traderCount > 2 }
+					}
+
+					var:ROOT.market_countries^2 = {
+						has_tech = ww1_fighter4
+						has_tech = ww1_fighter5
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 1 }
+					}
+
+					var:ROOT.market_countries^1 = {
+						has_tech = ww1_fighter4
+						has_tech = ww1_fighter5
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 0}
+					}
+
+					var:ROOT.market_countries^0 = {
+						has_tech = ww1_fighter4
+						has_tech = ww1_fighter5
+					}
+				}
+			}
+		}
+	}
+	icon = generic_air
+	cost = 10
+
+	complete_effect = {
+	}
+	remove_effect = {
+
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_4
+	amount = 33
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_4
+	amount = 33
+	producer = var:ROOT.market_countries^1
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_4
+	amount = 33
+	producer = var:ROOT.market_countries^2
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_4
+	amount = 50
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_4
+	amount = 50
+	producer = var:ROOT.market_countries^1
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_4
+	amount = 100
+	producer = var:ROOT.market_countries^0
+}
+
+
+		}
+	}
+}
+
+
+
+
+purchase_surplus_ww1_fighter5_0 = {
+	available = {
+
+		check_variable = { ROOT.market_countries^num > 0 }
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			var:ROOT.market_countries^2 = {
+				has_tech = ww1_fighter5
+				has_tech = ww1_fighter6
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			var:ROOT.market_countries^1 = {
+				has_tech = ww1_fighter5
+				has_tech = ww1_fighter6
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			var:ROOT.market_countries^0 = {
+				has_tech = ww1_fighter5
+				has_tech = ww1_fighter6
+			}
+		}
+
+		NOT = { 
+			ROOT = { has_idea = closed_economy }
+		}
+		num_of_civilian_factories_available_for_projects > 1
+
+	}
+	modifier = {
+		civilian_factory_use = 1
+	}
+	days_remove = 90
+	visible = {
+		has_country_flag = open_surplus_menu
+
+
+		OR = {
+			is_debug = yes
+			AND = {
+
+				check_variable = { ROOT.market_countries^num > 0 }
+				set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+				if = {
+					limit = {
+					check_variable = { traderCount > 2 }
+					}
+
+					var:ROOT.market_countries^2 = {
+						has_tech = ww1_fighter5
+						has_tech = ww1_fighter6
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 1 }
+					}
+
+					var:ROOT.market_countries^1 = {
+						has_tech = ww1_fighter5
+						has_tech = ww1_fighter6
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 0}
+					}
+
+					var:ROOT.market_countries^0 = {
+						has_tech = ww1_fighter5
+						has_tech = ww1_fighter6
+					}
+				}
+			}
+		}
+	}
+	icon = generic_air
+	cost = 10
+
+	complete_effect = {
+	}
+	remove_effect = {
+
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_5
+	amount = 33
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_5
+	amount = 33
+	producer = var:ROOT.market_countries^1
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_5
+	amount = 33
+	producer = var:ROOT.market_countries^2
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_5
+	amount = 50
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_5
+	amount = 50
+	producer = var:ROOT.market_countries^1
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_5
+	amount = 100
+	producer = var:ROOT.market_countries^0
+}
+
+
+		}
+	}
+}
+
+
+
+
+purchase_surplus_ww1_fighter6_0 = {
+	available = {
+
+		check_variable = { ROOT.market_countries^num > 0 }
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			var:ROOT.market_countries^2 = {
+				has_tech = ww1_fighter6
+				has_tech = early_fighter
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			var:ROOT.market_countries^1 = {
+				has_tech = ww1_fighter6
+				has_tech = early_fighter
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			var:ROOT.market_countries^0 = {
+				has_tech = ww1_fighter6
+				has_tech = early_fighter
+			}
+		}
+
+		NOT = { 
+			ROOT = { has_idea = closed_economy }
+		}
+		num_of_civilian_factories_available_for_projects > 1
+
+	}
+	modifier = {
+		civilian_factory_use = 1
+	}
+	days_remove = 90
+	visible = {
+		has_country_flag = open_surplus_menu
+
+
+		OR = {
+			is_debug = yes
+			AND = {
+
+				check_variable = { ROOT.market_countries^num > 0 }
+				set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+				if = {
+					limit = {
+					check_variable = { traderCount > 2 }
+					}
+
+					var:ROOT.market_countries^2 = {
+						has_tech = ww1_fighter6
+						has_tech = early_fighter
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 1 }
+					}
+
+					var:ROOT.market_countries^1 = {
+						has_tech = ww1_fighter6
+						has_tech = early_fighter
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 0}
+					}
+
+					var:ROOT.market_countries^0 = {
+						has_tech = ww1_fighter6
+						has_tech = early_fighter
+					}
+				}
+			}
+		}
+	}
+	icon = generic_air
+	cost = 10
+
+	complete_effect = {
+	}
+	remove_effect = {
+
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_6
+	amount = 33
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_6
+	amount = 33
+	producer = var:ROOT.market_countries^1
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_6
+	amount = 33
+	producer = var:ROOT.market_countries^2
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_6
+	amount = 50
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_6
+	amount = 50
+	producer = var:ROOT.market_countries^1
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			add_equipment_to_stockpile = {
+	type = ww1_fighter_equipment_6
+	amount = 100
+	producer = var:ROOT.market_countries^0
+}
+
+
+		}
+	}
+}
+
+
+
+
+purchase_surplus_early_fighter_0 = {
+	available = {
+
+		check_variable = { ROOT.market_countries^num > 0 }
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			var:ROOT.market_countries^2 = {
+				has_tech = early_fighter
+				has_tech = fighter1
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			var:ROOT.market_countries^1 = {
+				has_tech = early_fighter
+				has_tech = fighter1
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			var:ROOT.market_countries^0 = {
+				has_tech = early_fighter
+				has_tech = fighter1
+			}
+		}
+
+		NOT = { 
+			ROOT = { has_idea = closed_economy }
+		}
+		num_of_civilian_factories_available_for_projects > 1
+
+	}
+	modifier = {
+		civilian_factory_use = 1
+	}
+	days_remove = 90
+	visible = {
+		has_country_flag = open_surplus_menu
+
+
+		OR = {
+			is_debug = yes
+			AND = {
+
+				check_variable = { ROOT.market_countries^num > 0 }
+				set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+				if = {
+					limit = {
+					check_variable = { traderCount > 2 }
+					}
+
+					var:ROOT.market_countries^2 = {
+						has_tech = early_fighter
+						has_tech = fighter1
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 1 }
+					}
+
+					var:ROOT.market_countries^1 = {
+						has_tech = early_fighter
+						has_tech = fighter1
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 0}
+					}
+
+					var:ROOT.market_countries^0 = {
+						has_tech = early_fighter
+						has_tech = fighter1
+					}
+				}
+			}
+		}
+	}
+	icon = generic_air
+	cost = 10
+
+	complete_effect = {
+	}
+	remove_effect = {
+
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = fighter_equipment_0
+	amount = 33
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = fighter_equipment_0
+	amount = 33
+	producer = var:ROOT.market_countries^1
+}
+
+add_equipment_to_stockpile = {
+	type = fighter_equipment_0
+	amount = 33
+	producer = var:ROOT.market_countries^2
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = fighter_equipment_0
+	amount = 50
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = fighter_equipment_0
+	amount = 50
+	producer = var:ROOT.market_countries^1
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			add_equipment_to_stockpile = {
+	type = fighter_equipment_0
+	amount = 100
+	producer = var:ROOT.market_countries^0
+}
+
+
+		}
+	}
+}
+
+
+
+
+purchase_surplus_fighter1_0 = {
+	available = {
+
+		check_variable = { ROOT.market_countries^num > 0 }
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			var:ROOT.market_countries^2 = {
+				has_tech = fighter1
+				has_tech = fighter2
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			var:ROOT.market_countries^1 = {
+				has_tech = fighter1
+				has_tech = fighter2
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			var:ROOT.market_countries^0 = {
+				has_tech = fighter1
+				has_tech = fighter2
+			}
+		}
+
+		NOT = { 
+			ROOT = { has_idea = closed_economy }
+		}
+		num_of_civilian_factories_available_for_projects > 1
+
+	}
+	modifier = {
+		civilian_factory_use = 1
+	}
+	days_remove = 90
+	visible = {
+		has_country_flag = open_surplus_menu
+
+
+		OR = {
+			is_debug = yes
+			AND = {
+
+				check_variable = { ROOT.market_countries^num > 0 }
+				set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+				if = {
+					limit = {
+					check_variable = { traderCount > 2 }
+					}
+
+					var:ROOT.market_countries^2 = {
+						has_tech = fighter1
+						has_tech = fighter2
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 1 }
+					}
+
+					var:ROOT.market_countries^1 = {
+						has_tech = fighter1
+						has_tech = fighter2
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 0}
+					}
+
+					var:ROOT.market_countries^0 = {
+						has_tech = fighter1
+						has_tech = fighter2
+					}
+				}
+			}
+		}
+	}
+	icon = generic_air
+	cost = 10
+
+	complete_effect = {
+	}
+	remove_effect = {
+
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = fighter_equipment_1
+	amount = 33
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = fighter_equipment_1
+	amount = 33
+	producer = var:ROOT.market_countries^1
+}
+
+add_equipment_to_stockpile = {
+	type = fighter_equipment_1
+	amount = 33
+	producer = var:ROOT.market_countries^2
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = fighter_equipment_1
+	amount = 50
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = fighter_equipment_1
+	amount = 50
+	producer = var:ROOT.market_countries^1
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			add_equipment_to_stockpile = {
+	type = fighter_equipment_1
+	amount = 100
+	producer = var:ROOT.market_countries^0
+}
+
+
+		}
+	}
+}
+
+
+
+
+purchase_surplus_fighter2_0 = {
+	available = {
+
+		check_variable = { ROOT.market_countries^num > 0 }
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			var:ROOT.market_countries^2 = {
+				has_tech = fighter2
+				has_tech = fighter3
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			var:ROOT.market_countries^1 = {
+				has_tech = fighter2
+				has_tech = fighter3
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			var:ROOT.market_countries^0 = {
+				has_tech = fighter2
+				has_tech = fighter3
+			}
+		}
+
+		NOT = { 
+			ROOT = { has_idea = closed_economy }
+		}
+		num_of_civilian_factories_available_for_projects > 1
+
+	}
+	modifier = {
+		civilian_factory_use = 1
+	}
+	days_remove = 90
+	visible = {
+		has_country_flag = open_surplus_menu
+
+
+		OR = {
+			is_debug = yes
+			AND = {
+
+				check_variable = { ROOT.market_countries^num > 0 }
+				set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+				if = {
+					limit = {
+					check_variable = { traderCount > 2 }
+					}
+
+					var:ROOT.market_countries^2 = {
+						has_tech = fighter2
+						has_tech = fighter3
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 1 }
+					}
+
+					var:ROOT.market_countries^1 = {
+						has_tech = fighter2
+						has_tech = fighter3
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 0}
+					}
+
+					var:ROOT.market_countries^0 = {
+						has_tech = fighter2
+						has_tech = fighter3
+					}
+				}
+			}
+		}
+	}
+	icon = generic_air
+	cost = 10
+
+	complete_effect = {
+	}
+	remove_effect = {
+
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = fighter_equipment_2
+	amount = 33
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = fighter_equipment_2
+	amount = 33
+	producer = var:ROOT.market_countries^1
+}
+
+add_equipment_to_stockpile = {
+	type = fighter_equipment_2
+	amount = 33
+	producer = var:ROOT.market_countries^2
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = fighter_equipment_2
+	amount = 50
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = fighter_equipment_2
+	amount = 50
+	producer = var:ROOT.market_countries^1
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			add_equipment_to_stockpile = {
+	type = fighter_equipment_2
+	amount = 100
+	producer = var:ROOT.market_countries^0
+}
+
+
+		}
+	}
+}
+
+
+
+
+purchase_surplus_fighter3_0 = {
+	available = {
+
+		check_variable = { ROOT.market_countries^num > 0 }
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			var:ROOT.market_countries^2 = {
+				has_tech = fighter3
+				has_tech = jet_fighter1
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			var:ROOT.market_countries^1 = {
+				has_tech = fighter3
+				has_tech = jet_fighter1
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			var:ROOT.market_countries^0 = {
+				has_tech = fighter3
+				has_tech = jet_fighter1
+			}
+		}
+
+		NOT = { 
+			ROOT = { has_idea = closed_economy }
+		}
+		num_of_civilian_factories_available_for_projects > 1
+
+	}
+	modifier = {
+		civilian_factory_use = 1
+	}
+	days_remove = 90
+	visible = {
+		has_country_flag = open_surplus_menu
+
+
+		OR = {
+			is_debug = yes
+			AND = {
+
+				check_variable = { ROOT.market_countries^num > 0 }
+				set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+				if = {
+					limit = {
+					check_variable = { traderCount > 2 }
+					}
+
+					var:ROOT.market_countries^2 = {
+						has_tech = fighter3
+						has_tech = jet_fighter1
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 1 }
+					}
+
+					var:ROOT.market_countries^1 = {
+						has_tech = fighter3
+						has_tech = jet_fighter1
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 0}
+					}
+
+					var:ROOT.market_countries^0 = {
+						has_tech = fighter3
+						has_tech = jet_fighter1
+					}
+				}
+			}
+		}
+	}
+	icon = generic_air
+	cost = 10
+
+	complete_effect = {
+	}
+	remove_effect = {
+
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = fighter_equipment_3
+	amount = 33
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = fighter_equipment_3
+	amount = 33
+	producer = var:ROOT.market_countries^1
+}
+
+add_equipment_to_stockpile = {
+	type = fighter_equipment_3
+	amount = 33
+	producer = var:ROOT.market_countries^2
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = fighter_equipment_3
+	amount = 50
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = fighter_equipment_3
+	amount = 50
+	producer = var:ROOT.market_countries^1
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			add_equipment_to_stockpile = {
+	type = fighter_equipment_3
+	amount = 100
+	producer = var:ROOT.market_countries^0
+}
+
+
+		}
+	}
+}
+
+
+
+
+purchase_surplus_jet_fighter1_0 = {
+	available = {
+
+		check_variable = { ROOT.market_countries^num > 0 }
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			var:ROOT.market_countries^2 = {
+				has_tech = jet_fighter1
+				has_tech = jet_fighter2
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			var:ROOT.market_countries^1 = {
+				has_tech = jet_fighter1
+				has_tech = jet_fighter2
+			}
+		}
+
+		if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			var:ROOT.market_countries^0 = {
+				has_tech = jet_fighter1
+				has_tech = jet_fighter2
+			}
+		}
+
+		NOT = { 
+			ROOT = { has_idea = closed_economy }
+		}
+		num_of_civilian_factories_available_for_projects > 1
+
+	}
+	modifier = {
+		civilian_factory_use = 1
+	}
+	days_remove = 90
+	visible = {
+		has_country_flag = open_surplus_menu
+
+
+		OR = {
+			is_debug = yes
+			AND = {
+
+				check_variable = { ROOT.market_countries^num > 0 }
+				set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+				if = {
+					limit = {
+					check_variable = { traderCount > 2 }
+					}
+
+					var:ROOT.market_countries^2 = {
+						has_tech = jet_fighter1
+						has_tech = jet_fighter2
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 1 }
+					}
+
+					var:ROOT.market_countries^1 = {
+						has_tech = jet_fighter1
+						has_tech = jet_fighter2
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { traderCount > 0}
+					}
+
+					var:ROOT.market_countries^0 = {
+						has_tech = jet_fighter1
+						has_tech = jet_fighter2
+					}
+				}
+			}
+		}
+	}
+	icon = generic_air
+	cost = 10
+
+	complete_effect = {
+	}
+	remove_effect = {
+
+		set_temp_variable = { traderCount = ROOT.market_countries^num }
+
+		if = {
+			limit = {
+			  check_variable = { traderCount > 2 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = jet_fighter_equipment_1
+	amount = 33
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = jet_fighter_equipment_1
+	amount = 33
+	producer = var:ROOT.market_countries^1
+}
+
+add_equipment_to_stockpile = {
+	type = jet_fighter_equipment_1
+	amount = 33
+	producer = var:ROOT.market_countries^2
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 1 }
+			}
+
+			add_equipment_to_stockpile = {
+	type = jet_fighter_equipment_1
+	amount = 50
+	producer = var:ROOT.market_countries^0
+}
+
+add_equipment_to_stockpile = {
+	type = jet_fighter_equipment_1
+	amount = 50
+	producer = var:ROOT.market_countries^1
+}
+
+
+		} else_if = {
+			limit = {
+				check_variable = { traderCount > 0}
+			}
+
+			add_equipment_to_stockpile = {
+	type = jet_fighter_equipment_1
+	amount = 100
+	producer = var:ROOT.market_countries^0
+}
+
+
+		}
+	}
+}
+
+
+
+}

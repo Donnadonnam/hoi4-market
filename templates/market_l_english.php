@@ -188,24 +188,8 @@
 ######################################################################################################################################################
 ######################################################################################################################################################
 ######################################################################################################################################################
-
-purchase_rifle_surplus_infantry_weapons_0: "Purchase Great War Rifle Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-purchase_rifle_surplus_infantry_weapons1_0: "Purchase Inter War Rifle Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-purchase_rifle_surplus_improved_infantry_weapons_0: "Purchase Mid War Rifle Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-
-purchase_surplus_armored_car1_0: "Purchase Inter War Armored Car Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-purchase_surplus_armored_car2_0: "Purchase Mid War Armored Car Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-
-purchase_surplus_gwtank_0: "Purchase Great War Armor Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-purchase_surplus_basic_light_tank_0: "Purchase Inter War Armor Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-purchase_surplus_improved_light_tank_0: "Purchase Mid War Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-
-purchase_surplus_gw_artillery_0: "Purchase Great War Artillery Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-purchase_surplus_artillery1_0: "Purchase Inter War Artillery Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-
-purchase_surplus_early_fighter_0: "£army_experience Purchase Great War Fighter Aircraft Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-purchase_surplus_fighter1_0: "Purchase Inter War Fighter Aircraft Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-purchase_surplus_fighter2_0: "Purchase Mid War Fighter Aircraft Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-purchase_surplus_fighter3_0: "Purchase War Fighter Aircraft Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-purchase_surplus_jet_fighter1_0: "Purchase Late War Fighter Aircraft Surplus [?ROOT.market_countries^0.GetFlag] [?ROOT.market_countries^1.GetFlag] [?ROOT.market_countries^2.GetFlag]"
-
+<?php
+	foreach($translations as $key => $translation) {
+		echo " ".$key.':0 '.$translation;
+	}
+?>
